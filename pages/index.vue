@@ -21,8 +21,8 @@ const searchClient = new TypesenseInstantSearchAdapter({
     //  So you can pass any parameters supported by the search endpoint below.
     //  queryBy is required.
     additionalSearchParameters: {
-        query_by: 'w_s, w_t, w_p, w_d, c_t, c_v, c_s, c_g, c_p, k, v, j, n',
-        query_by_weights: '4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1',
+        query_by: 'w_s, w_t, w_p, w_d, c_t, c_v, c_s, c_g, c_p, k, v, j, n, j.r.r',
+        query_by_weights: '4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 1, 5',
         per_page: 50,
         infix: 'always'
     }

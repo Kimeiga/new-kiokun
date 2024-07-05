@@ -17,7 +17,6 @@ const props = defineProps(['data'])
 </script>
 
 <template>
-    {{ data }}
     <div class="element">
 
         <div class="element-left-icon">
@@ -45,7 +44,9 @@ const props = defineProps(['data'])
                 <div style="font-size: 0.5em; color: grey;">{{ data.k[0].r[0].o }}</div>
             </div> -->
 
-            <KanjiFurigana v-if="data.k" :furigana="data.k[0].r[0].f" :romaji="data.k[0].r[0].o" />
+            <KanjiFurigana v-if="data.k && data.k[0].r" :furigana="data.k[0].r[0].f" :romaji="data.k[0].r[0].o" />
+
+            <KanjiFurigana v-if="data.k && data.k[0].R" :fakeFurigana="data.k[0].R[0].r" :kanji="data.k[0].t" :romaji="data.k[0].R[0].o" />
             <KanjiFurigana v-if="!data.k" :kana="data.r[0].t" :romaji="data.r[0].r" />
 
             <!-- <div v-if="data.k.length && data.r.length" class="japanese_word_title">
@@ -143,6 +144,7 @@ const props = defineProps(['data'])
             </div> -->
         </div>
     </div>
+    <hr style="border-color: grey;">
 </template>
 
 <style scoped>

@@ -66,7 +66,7 @@ const t2Full = {
     "euph": "euphemistic",
     "embryo": "embryology",
     "v2y-k": "Nidan verb (upper class) with 'yu' ending (archaic)",
-    "uk": "word usually written using kana alone",
+    "uk": "Usually written using kana alone",
     "rare": "rare term",
     "v2a-s": "Nidan verb with 'u' ending (archaic)",
     "hanaf": "hanafuda",

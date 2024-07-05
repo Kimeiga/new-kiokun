@@ -19,6 +19,21 @@ console.log(toRaw(data.value));  // Access data.value in the script setup
         <div v-if="error">
             There was an error: {{ error.message }}
         </div>
+
+        <div v-if="data.c_c">
+            <CChar :data="data.c_c" :svgSimp="data?.g?.s" :svgTrad="data?.g?.t"></CChar>
+        </div>
+
+        <div v-if="data.j_c">
+            <JChar :data="data.j_c"></JChar>
+        </div>
+
+        <div v-if="data.c_w">
+            <template v-for="cw in data.c_w">
+                <CWord :data="cw"></CWord>
+            </template>
+        </div>
+
         <div v-if="data.j_w">
             <div v-for="jw in data.j_w">
                 <JWord :data="jw"></JWord>
@@ -35,7 +50,7 @@ console.log(toRaw(data.value));  // Access data.value in the script setup
             </div>
         </div>
 
-        <div v-if="data.g">
+        <!-- <div v-if="data.g">
             <div v-for="g in data.g">
                 <div class="char-svg" v-if="g.j" v-html="g.j"></div>
                 <div class="char-svg" v-if="g.s" v-html="g.s"></div>
@@ -49,7 +64,7 @@ console.log(toRaw(data.value));  // Access data.value in the script setup
         <div v-if="data && data.g && data.g.t" v-html="data.g.t">
         </div>
         <p>{{ $route.params.word }}</p>
-        <p>{{ data }}</p>
+        <p>{{ data }}</p> -->
     </main>
 </template>
 
@@ -173,6 +188,6 @@ main {
     height: ;
 } */
 svg.acjk {
-    height: 200px;
+    /* height: 200px; */
 }
 </style>

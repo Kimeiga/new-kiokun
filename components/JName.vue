@@ -4,7 +4,6 @@ const props = defineProps(['data'])
 </script>
 
 <template>
-    {{ data }}
     <div class="element">
         <div class="element-left-icon">
 
@@ -20,6 +19,8 @@ const props = defineProps(['data'])
                     <KanjiFurigana :furigana="r.f" :romaji="r.o" />
                 </template>
             </template>
+
+            <KanjiFurigana v-if="data.k && data.k[0].R" :fakeFurigana="data.k[0].R[0].r" :kanji="data.k[0].t" :romaji="data.k[0].R[0].o" />
 
             <!-- names without kanji only have kana -->
             <template v-if="!data.k" v-for="r in data.r">
@@ -43,7 +44,9 @@ const props = defineProps(['data'])
         <div class="element-right">
             <div v-for="translationGroup in data.t">
                 <div class="sense-tags">
-                    <span v-for="tag in translationGroup.y">{{ tag2Full(tag) }}</span>
+                    <span v-for="tag in translationGroup.y">{{ tag2Full(tag) == "female term or language" ? "female name" :
+                        (tag2Full(tag) == "male term or language" ? "male name" :
+                            tag2Full(tag)) }}</span>
                 </div>
                 <!-- <ol class="translation-list"> -->
                 <div class="translation" v-for="translation in translationGroup.t">{{ translation }}</div>
@@ -51,6 +54,7 @@ const props = defineProps(['data'])
             </div>
         </div>
     </div>
+    <hr style="border-color: grey;">
 </template>
 
 
